@@ -21,6 +21,7 @@ tr:nth-child(even) {
   display: flex;
   width: 100%;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .book-input {
@@ -42,6 +43,7 @@ tr:nth-child(even) {
   border: none;
   background-color: darkslategray;
   color: white;
+  display: block;
 }
 
 .displayform-button {
@@ -57,4 +59,12 @@ tr:nth-child(even) {
   height: 30px;
   background-color: darkslategray;
   color: white;
+}
+
+#bookRead {
+  width: 20px;
+}
+
+button {
+  margin-left: 3px;
 }

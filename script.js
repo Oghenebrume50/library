@@ -6,20 +6,18 @@ function Book(title, author, pages, read) {
   this.title = title;
   this.author = author;
   this.pages = pages;
-  this.read = read;
-
-  this.info = function() {
-    return `The ${title} by ${author}, ${pages} pages, ${
-      read ? "already read this" : "not read yet"
-    }`;
-  };
+  this.read = read; //? "already read this" : "not read yet";
 }
+
+Book.prototype.changeReadStatus = function() {
+  this.read = this.read ? false : true;
+};
 
 function createBook() {
   const bookTitle = document.getElementById("bookTitle").value;
   const bookAuthor = document.getElementById("bookAuthor").value;
   const bookPages = document.getElementById("bookPages").value;
-  const bookRead = document.getElementById("bookRead").value;
+  const bookRead = document.getElementById("bookRead").checked;
   const newBook = new Book(bookTitle, bookAuthor, bookPages, bookRead);
   return newBook;
 }
@@ -34,6 +32,13 @@ function addBookToLibrary(newBook) {
 
 function removeBook(val) {
   myLibrary.splice(val, 1);
+  readLibrary();
+}
+
+function editBookStatus(index) {
+  let bookI = myLibrary.slice(index, index + 1)[0];
+  bookI.changeReadStatus();
+  myLibrary.splice(index, 1, bookI);
   readLibrary();
 }
 
@@ -73,8 +78,13 @@ function readLibrary() {
     author.innerText = book.author;
     const pages = document.createElement("td");
     pages.innerText = book.pages;
+
     const read = document.createElement("td");
-    read.innerText = book.read;
+    read.innerText = book.read ? "already read this" : "not read yet";
+    const readStatus = document.createElement("button");
+    readStatus.setAttribute("onclick", `editBookStatus(${index})`);
+    readStatus.innerText = "Change Status";
+    read.append(readStatus);
 
     const deleteColumn = document.createElement("td");
     const deleteBook = document.createElement("button");
