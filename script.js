@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 let myLibrary = [];
 
@@ -8,18 +8,18 @@ function Book(title, author, pages, read) {
   this.pages = pages;
   this.read = read;
 
-  this.info = function () {
-    return `The ${title} by ${author}, ${pages} pages, ${read ? "already read this" : "not read yet"}`
-  }
+  this.info = function() {
+    return `The ${title} by ${author}, ${pages} pages, ${
+      read ? "already read this" : "not read yet"
+    }`;
+  };
 }
 
-
-
 function createBook() {
-  const bookTitle = document.getElementById('bookTitle').value;
-  const bookAuthor = document.getElementById('bookAuthor').value;
-  const bookPages = document.getElementById('bookPages').value;
-  const bookRead = document.getElementById('bookRead').value;
+  const bookTitle = document.getElementById("bookTitle").value;
+  const bookAuthor = document.getElementById("bookAuthor").value;
+  const bookPages = document.getElementById("bookPages").value;
+  const bookRead = document.getElementById("bookRead").value;
   const newBook = new Book(bookTitle, bookAuthor, bookPages, bookRead);
   return newBook;
 }
@@ -32,31 +32,68 @@ function addBookToLibrary(newBook) {
   readLibrary();
 }
 
-function readLibrary() {
-  const table = document.getElementsByTagName('table')[0];
-  console.log("reading");
-  const book = myLibrary[myLibrary.length - 1];
+function removeBook(val) {
+  myLibrary.splice(val, 1);
+  readLibrary();
+}
 
-    console.log(book.info());
-    const tr = document.createElement('tr');
-    const title = document.createElement('td');
+function readLibrary() {
+  const table = document.getElementsByTagName("table")[0];
+  table.innerHTML = "";
+  const tr = document.createElement("tr");
+
+  const title = document.createElement("th");
+  title.innerText = "Title";
+
+  const author = document.createElement("th");
+  author.innerText = "Author";
+
+  const pages = document.createElement("th");
+  pages.innerText = "Pages";
+
+  const read = document.createElement("th");
+  read.innerText = "Reading Status";
+
+  const deleteColumn = document.createElement("th");
+  deleteColumn.innerText = "Delete";
+
+  tr.appendChild(title);
+  tr.appendChild(author);
+  tr.appendChild(pages);
+  tr.appendChild(read);
+  tr.append(deleteColumn);
+
+  table.appendChild(tr);
+
+  myLibrary.forEach((book, index) => {
+    const tr = document.createElement("tr");
+    const title = document.createElement("td");
     title.innerText = book.title;
-    const author = document.createElement('td');
+    const author = document.createElement("td");
     author.innerText = book.author;
-    const pages = document.createElement('td');
+    const pages = document.createElement("td");
     pages.innerText = book.pages;
-    const read = document.createElement('td');
+    const read = document.createElement("td");
     read.innerText = book.read;
+
+    const deleteColumn = document.createElement("td");
+    const deleteBook = document.createElement("button");
+    deleteBook.setAttribute("onclick", `removeBook(${index})`);
+    deleteBook.innerText = "Delete";
+    deleteColumn.append(deleteBook);
 
     tr.appendChild(title);
     tr.appendChild(author);
     tr.appendChild(pages);
     tr.appendChild(read);
+    tr.append(deleteColumn);
+
     table.appendChild(tr);
+  });
 }
 
-let addBook = document.getElementById('addBook');
-addBook.addEventListener('click', () => {
+let addBook = document.getElementById("addBook");
+addBook.addEventListener("click", () => {
   addBookToLibrary(createBook());
 });
 
@@ -74,6 +111,6 @@ function displayForm() {
   }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
   render();
 });
