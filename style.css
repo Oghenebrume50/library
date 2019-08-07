@@ -13,10 +13,6 @@ tr:nth-child(even) {
   background-color: #dddddd;
 }
 
-/* form styling */
-/* #form-parent {
-  display: none;
-} */
 .form-container {
   display: flex;
   width: 100%;
@@ -25,7 +21,7 @@ tr:nth-child(even) {
 }
 
 .book-input {
-  width: 40%;
+  width: 55%;
   margin-top: 30px;
 }
 
@@ -41,6 +37,7 @@ tr:nth-child(even) {
 .form-submit {
   width: 120px !important;
   border: none;
+  height: 40px;
   background-color: darkslategray;
   color: white;
   display: block;
@@ -67,4 +64,8 @@ tr:nth-child(even) {
 
 button {
   margin-left: 3px;
+}
+
+.add_Book_Button_Container {
+  width: 55%;
 }

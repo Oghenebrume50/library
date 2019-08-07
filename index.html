@@ -22,20 +22,37 @@
       <div class="form-container" id="form-con">
         <form class="book-input">
           <label>Title:</label>
-          <input id="bookTitle" type="text" placeholder="Enter book title" />
+          <input
+            id="bookTitle"
+            type="text"
+            placeholder="Enter book title"
+            required
+          />
           <label>Author:</label>
-          <input id="bookAuthor" type="text" placeholder="Enter book author" />
+          <input
+            id="bookAuthor"
+            type="text"
+            placeholder="Enter book author"
+            required
+          />
           <label>Pages:</label>
-          <input id="bookPages" type="text" placeholder="Enter no. of pages" />
+          <input
+            id="bookPages"
+            type="text"
+            placeholder="Enter no. of pages"
+            required
+          />
           <label>Have you read this book?</label>
-          <input id="bookRead" type="checkbox" />
+          <input id="bookRead" type="checkbox" required />
         </form>
-        <input
-          id="addBook"
-          type="submit"
-          class="form-submit"
-          value="Add Book"
-        />
+        <div class="add_Book_Button_Container">
+          <input
+            id="addBook"
+            type="submit"
+            class="form-submit"
+            value="Add Book"
+          />
+        </div>
       </div>
     </div>
 
