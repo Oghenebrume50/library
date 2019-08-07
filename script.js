@@ -6,7 +6,7 @@ function Book(title, author, pages, read) {
   this.title = title;
   this.author = author;
   this.pages = pages;
-  this.read = read; //? "already read this" : "not read yet";
+  this.read = read;
 }
 
 Book.prototype.changeReadStatus = function() {
@@ -23,10 +23,7 @@ function createBook() {
 }
 
 function addBookToLibrary(newBook) {
-  console.log("in the function");
-  console.log(newBook.title);
   myLibrary.push(newBook);
-  console.log("end of function");
   readLibrary();
 }
 
@@ -78,14 +75,12 @@ function readLibrary() {
     author.innerText = book.author;
     const pages = document.createElement("td");
     pages.innerText = book.pages;
-
     const read = document.createElement("td");
     read.innerText = book.read ? "already read this" : "not read yet";
     const readStatus = document.createElement("button");
     readStatus.setAttribute("onclick", `editBookStatus(${index})`);
     readStatus.innerText = "Change Status";
     read.append(readStatus);
-
     const deleteColumn = document.createElement("td");
     const deleteBook = document.createElement("button");
     deleteBook.setAttribute("onclick", `removeBook(${index})`);
@@ -102,14 +97,19 @@ function readLibrary() {
   });
 }
 
-let addBook = document.getElementById("addBook");
+const addBook = document.getElementById("addBook");
 addBook.addEventListener("click", () => {
   addBookToLibrary(createBook());
+  hideForm();
 });
 
-function render() {
+function hideForm() {
   let form = document.getElementById("form-parent");
   form.style.display = "none";
+}
+
+function render() {
+  hideForm();
 }
 
 function displayForm() {
