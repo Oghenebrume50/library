@@ -1,35 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-  <link rel="stylesheet" type="text/css" href="style.css">
-</head>
-<body>
-<table style="width:100%">
-  <tr>
-    <th>Title</th>
-    <th>Author</th> 
-    <th>Pages</th>
-    <th>Read</th>
-  </tr>
-</table>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <table style="width:100%">
+      <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Pages</th>
+        <th>Read</th>
+      </tr>
+    </table>
 
-<form>
-  <label>Title:</label>
-  <input type="text" placeholder="Enter book title">
-  <label>Author:</label>
-  <input type="text" placeholder="Enter book author">
-  <label>Pages:</label>
-  <input type="text" placeholder="Enter no. of pages">
-  <label>Read:</label>
-  <input type="text" placeholder="Have you read this book?">
-  <input type="submit" value="Add book">
-</form>
+    <div id="form-parent">
+      <div class="form-container" id="form-con">
+        <form class="book-input">
+          <label>Title:</label>
+          <input type="text" placeholder="Enter book title" />
+          <label>Author:</label>
+          <input type="text" placeholder="Enter book author" />
+          <label>Pages:</label>
+          <input type="text" placeholder="Enter no. of pages" />
+          <label>Read:</label>
+          <input type="text" placeholder="Have you read this book?" />
+          <input type="submit" class="form-submit" value="Add Book" />
+        </form>
+      </div>
+    </div>
 
-<button id="addBook">Add a new book</button>
-  <script src="script.js"></script>
-</body>
+    <div class="displayform-button">
+      <button id="addBook" onclick="displayForm()">
+        Show Form
+      </button>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
 </html>
