@@ -21,20 +21,20 @@
       <div class="form-container" id="form-con">
         <form class="book-input">
           <label>Title:</label>
-          <input type="text" placeholder="Enter book title" />
+          <input id="bookTitle" type="text" placeholder="Enter book title" />
           <label>Author:</label>
-          <input type="text" placeholder="Enter book author" />
+          <input id="bookAuthor" type="text" placeholder="Enter book author" />
           <label>Pages:</label>
-          <input type="text" placeholder="Enter no. of pages" />
+          <input id="bookPages" type="text" placeholder="Enter no. of pages" />
           <label>Read:</label>
-          <input type="text" placeholder="Have you read this book?" />
-          <input type="submit" class="form-submit" value="Add Book" />
+          <input id="bookRead" type="text" placeholder="Have you read this book?" />
         </form>
+        <input id="addBook" type="submit" class="form-submit" value="Add Book" />
       </div>
     </div>
 
     <div class="displayform-button">
-      <button id="addBook" onclick="displayForm()">
+      <button onclick="displayForm()">
         Show Form
       </button>
     </div>

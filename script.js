@@ -1,3 +1,5 @@
+'use strict';
+
 let myLibrary = [];
 
 function Book(title, author, pages, read) {
@@ -11,35 +13,64 @@ function Book(title, author, pages, read) {
   }
 }
 
-let book1 = new Book("Hobbit", "J.R.R. Tolkien", 295, false);
-myLibrary.push(book1);
 
-function toogleForm() {
 
+function createBook() {
+  const bookTitle = document.getElementById('bookTitle').value;
+  const bookAuthor = document.getElementById('bookAuthor').value;
+  const bookPages = document.getElementById('bookPages').value;
+  const bookRead = document.getElementById('bookRead').value;
+  const newBook = new Book(bookTitle, bookAuthor, bookPages, bookRead);
+  return newBook;
 }
 
-function addBookToLibrary() {
-  let addBook = document.getElementById('addBook')
-  addBook.addEventListener('click', () => {
-    const form = document.createElement('form');
-
-  })
+function addBookToLibrary(newBook) {
+  console.log("in the function");
+  console.log(newBook.title);
+  myLibrary.push(newBook);
+  console.log("end of function");
+  readLibrary();
 }
+
+function readLibrary() {
+  const table = document.getElementsByTagName('table')[0];
+  console.log("reading");
+  const book = myLibrary[myLibrary.length - 1];
+
+    console.log(book.info());
+    const tr = document.createElement('tr');
+    const title = document.createElement('td');
+    title.innerText = book.title;
+    const author = document.createElement('td');
+    author.innerText = book.author;
+    const pages = document.createElement('td');
+    pages.innerText = book.pages;
+    const read = document.createElement('td');
+    read.innerText = book.read;
+
+    tr.appendChild(title);
+    tr.appendChild(author);
+    tr.appendChild(pages);
+    tr.appendChild(read);
+    table.appendChild(tr);
+}
+
+let addBook = document.getElementById('addBook');
+addBook.addEventListener('click', () => {
+  addBookToLibrary(createBook());
+});
 
 function render() {
-  x = document.getElementById("form-parent");
-  x.style.display = "none";
-  myLibrary.forEach((book) => {
-    console.log(book.info());
-  })
+  let form = document.getElementById("form-parent");
+  form.style.display = "none";
 }
 
 function displayForm() {
-  var x = document.getElementById("form-parent");
-  if (x.style.display === "none") {
-    x.style.display = "block";
+  let form = document.getElementById("form-parent");
+  if (form.style.display === "none") {
+    form.style.display = "block";
   } else {
-    x.style.display = "none";
+    form.style.display = "none";
   }
 }
 

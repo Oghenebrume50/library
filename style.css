@@ -14,9 +14,9 @@ tr:nth-child(even) {
 }
 
 /* form styling */
-#form-parent {
+/* #form-parent {
   display: none;
-}
+} */
 .form-container {
   display: flex;
   width: 100%;
