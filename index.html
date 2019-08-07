@@ -20,7 +20,7 @@
 
     <div id="form-parent">
       <div class="form-container" id="form-con">
-        <form class="book-input">
+        <form action="#" class="book-input" novalidate>
           <label>Title:</label>
           <input
             id="bookTitle"
@@ -38,21 +38,22 @@
           <label>Pages:</label>
           <input
             id="bookPages"
-            type="text"
+            type="number"
             placeholder="Enter no. of pages"
             required
           />
           <label>Have you read this book?</label>
-          <input id="bookRead" type="checkbox" required />
+          <input id="bookRead" type="checkbox"/>
+          <div class="add_Book_Button_Container">
+            <input
+              id="addBook"
+              type="submit"
+              class="form-submit"
+              value="Add Book"
+            />
+          </div>
         </form>
-        <div class="add_Book_Button_Container">
-          <input
-            id="addBook"
-            type="submit"
-            class="form-submit"
-            value="Add Book"
-          />
-        </div>
+        
       </div>
     </div>
 
