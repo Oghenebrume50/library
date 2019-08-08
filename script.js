@@ -1,5 +1,3 @@
-'use strict';
-
 const myLibrary = [];
 
 function Book(title, author, pages, read) {
@@ -9,9 +7,11 @@ function Book(title, author, pages, read) {
   this.read = read;
 }
 
-Book.prototype.changeReadStatus = function () {
-  this.read = this.read === true ? false : true;
-};
+function changeReadStatus() {
+  this.read = !this.read;
+}
+
+Book.prototype.changeReadStatus = changeReadStatus;
 
 function createBook() {
   const bookTitle = document.getElementById('bookTitle').value;
@@ -24,25 +24,6 @@ function createBook() {
   }
   const newBook = new Book(bookTitle, bookAuthor, bookPages, bookRead);
   return newBook;
-}
-
-function addBookToLibrary(newBook) {
-  if (newBook) {
-    myLibrary.push(newBook);
-  }
-  readLibrary();
-}
-
-function removeBook(val) {
-  myLibrary.splice(val, 1);
-  readLibrary();
-}
-
-function editBookStatus(index) {
-  let bookI = myLibrary.slice(index, index + 1)[0];
-  bookI.changeReadStatus();
-  myLibrary.splice(index, 1, bookI);
-  readLibrary();
 }
 
 function readLibrary() {
@@ -101,6 +82,25 @@ function readLibrary() {
 
     table.appendChild(tr);
   });
+}
+
+function removeBook(val) {
+  myLibrary.splice(val, 1);
+  readLibrary();
+}
+
+function editBookStatus(index) {
+  let bookI = myLibrary.slice(index, index + 1)[0];
+  bookI.changeReadStatus();
+  myLibrary.splice(index, 1, bookI);
+  readLibrary();
+}
+
+function addBookToLibrary(newBook) {
+  if (newBook) {
+    myLibrary.push(newBook);
+  }
+  readLibrary();
 }
 
 function hideForm() {
