@@ -47,7 +47,7 @@ function editBookStatus(index) {
 
 function readLibrary() {
   const table = document.getElementsByTagName('table')[0];
-  table.innerHTML = ';
+  table.innerHTML = '';
   const tr = document.createElement('tr');
 
   const title = document.createElement('th');
