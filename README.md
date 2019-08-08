@@ -8,4 +8,4 @@ This is a sample library web project built by [pwilson77](https://github.com/pwi
 
 ### To view the project online
 
-1. Follow this [link]()
+1. Follow this [link]() to view the project
