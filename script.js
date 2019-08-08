@@ -90,7 +90,7 @@ function removeBook(val) {
 }
 
 function editBookStatus(index) {
-  let bookI = myLibrary.slice(index, index + 1)[0];
+  const bookI = myLibrary.slice(index, index + 1)[0];
   bookI.changeReadStatus();
   myLibrary.splice(index, 1, bookI);
   readLibrary();
@@ -104,7 +104,7 @@ function addBookToLibrary(newBook) {
 }
 
 function hideForm() {
-  let form = document.getElementById('form-parent');
+  const form = document.getElementById('form-parent');
   form.style.display = 'none';
 }
 
@@ -118,7 +118,7 @@ function render() {
 }
 
 function displayForm() {
-  let form = document.getElementById('form-parent');
+  const form = document.getElementById('form-parent');
   if (form.style.display === 'none') {
     form.style.display = 'block';
   } else {
