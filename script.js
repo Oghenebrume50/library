@@ -29,30 +29,30 @@ function createBook() {
 function readLibrary() {
   const table = document.getElementsByTagName('table')[0];
   table.innerHTML = '';
-  const tr = document.createElement('tr');
+  const tHead = document.createElement('tr');
 
-  const title = document.createElement('th');
-  title.innerText = 'Title';
+  const titleHead = document.createElement('th');
+  titleHead.innerText = 'Title';
 
-  const author = document.createElement('th');
-  author.innerText = 'Author';
+  const authorHead = document.createElement('th');
+  authorHead.innerText = 'Author';
 
-  const pages = document.createElement('th');
-  pages.innerText = 'Pages';
+  const pagesHead = document.createElement('th');
+  pagesHead.innerText = 'Pages';
 
-  const read = document.createElement('th');
-  read.innerText = 'Reading Status';
+  const readHead = document.createElement('th');
+  readHead.innerText = 'Reading Status';
 
-  const deleteColumn = document.createElement('th');
-  deleteColumn.innerText = 'Delete';
+  const deleteColumnHead = document.createElement('th');
+  deleteColumnHead.innerText = 'Delete';
 
-  tr.appendChild(title);
-  tr.appendChild(author);
-  tr.appendChild(pages);
-  tr.appendChild(read);
-  tr.append(deleteColumn);
+  tHead.appendChild(titleHead);
+  tHead.appendChild(authorHead);
+  tHead.appendChild(pagesHead);
+  tHead.appendChild(readHead);
+  tHead.append(deleteColumnHead);
 
-  table.appendChild(tr);
+  table.appendChild(tHead);
 
   myLibrary.forEach((book, index) => {
     const tr = document.createElement('tr');
