@@ -117,7 +117,7 @@ function render() {
   });
 }
 
-function displayForm() {
+function displayForm() {  // eslint-disable-line no-unused-vars
   const form = document.getElementById('form-parent');
   if (form.style.display === 'none') {
     form.style.display = 'block';
