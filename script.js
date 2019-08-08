@@ -19,6 +19,7 @@ function createBook() {
   const bookPages = document.getElementById('bookPages').value;
   const bookRead = document.getElementById('bookRead').checked;
   if (!bookTitle || !bookAuthor || !bookPages) {
+    /* eslint-disable no-alert, no-console */
     alert('please fill all fields');
     return '';
   }
@@ -84,12 +85,12 @@ function readLibrary() {
   });
 }
 
-function removeBook(val) {
+function removeBook(val) { // eslint-disable-line no-unused-vars
   myLibrary.splice(val, 1);
   readLibrary();
 }
 
-function editBookStatus(index) {
+function editBookStatus(index) { // eslint-disable-line no-unused-vars
   const bookI = myLibrary.slice(index, index + 1)[0];
   bookI.changeReadStatus();
   myLibrary.splice(index, 1, bookI);
@@ -117,7 +118,7 @@ function render() {
   });
 }
 
-function displayForm() {  // eslint-disable-line no-unused-vars
+function displayForm() { // eslint-disable-line no-unused-vars
   const form = document.getElementById('form-parent');
   if (form.style.display === 'none') {
     form.style.display = 'block';
