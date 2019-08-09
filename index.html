@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+  </head>
+  <body>
+    <table style="width:100%">
+      <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Pages</th>
+        <th>Read</th>
+        <th>Delete</th>
+      </tr>
+    </table>
+
+    <div id="form-parent">
+      <div class="form-container" id="form-con">
+        <form action="#" class="book-input" novalidate>
+          <label>Title:</label>
+          <input
+            id="bookTitle"
+            type="text"
+            placeholder="Enter book title"
+            required
+          />
+          <label>Author:</label>
+          <input
+            id="bookAuthor"
+            type="text"
+            placeholder="Enter book author"
+            required
+          />
+          <label>Pages:</label>
+          <input
+            id="bookPages"
+            type="number"
+            placeholder="Enter no. of pages"
+            required
+          />
+          <label>Have you read this book?</label>
+          <input id="bookRead" type="checkbox"/>
+          <div class="add_Book_Button_Container">
+            <input
+              id="addBook"
+              type="submit"
+              class="form-submit"
+              value="Add Book"
+            />
+          </div>
+        </form>
+        
+      </div>
+    </div>
+
+    <div class="displayform-button">
+      <button onclick="displayForm()">
+        Show Form
+      </button>
+    </div>
+
+    <script src="assets/js/script.js"></script>
+  </body>
+</html>
